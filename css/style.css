@@ -1,0 +1,430 @@
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --ink: #111;
+  --muted: #999;
+  --max: 660px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: #fff;
+  line-height: 1.65;
+  padding-bottom: 100px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+a:hover { opacity: 0.65; }
+
+/* ── Layout ── */
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 72px 28px 48px;
+}
+
+/* ── Heading ── */
+h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 6vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin-bottom: 52px;
+}
+
+/* ── Studio mark ── */
+.studio-mark {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 18px;
+  letter-spacing: 0.02em;
+}
+
+/* ── About ── */
+.about p {
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.72;
+  margin-bottom: 18px;
+  max-width: 580px;
+}
+
+/* ── Connect ── */
+.connect { margin-top: 36px; }
+
+.section-label {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+  letter-spacing: 0.03em;
+}
+
+.connect p {
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.72;
+  max-width: 560px;
+}
+
+/* ── Projects ── */
+.projects {
+  max-width: 900px;
+  margin: 80px auto 0;
+  padding: 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-card {
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* — Calm card — */
+.card-calm {
+  aspect-ratio: 16 / 9;
+}
+
+.calm-bg {
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(180deg,
+      #b0c8d6 0%,
+      #88aab8 25%,
+      #6b9480 50%,
+      #4e7357 75%,
+      #3a5e42 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* subtle texture */
+.calm-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+}
+
+.calm-ui {
+  position: relative;
+  text-align: center;
+  color: rgba(255,255,255,0.9);
+}
+
+.calm-loader {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.calm-loader span {
+  width: 3px;
+  height: 3px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 50%;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+.calm-loader span:nth-child(1) { animation-delay: 0s; }
+.calm-loader span:nth-child(2) { animation-delay: .1s; }
+.calm-loader span:nth-child(3) { animation-delay: .2s; }
+.calm-loader span:nth-child(4) { animation-delay: .3s; }
+.calm-loader span:nth-child(5) { animation-delay: .4s; }
+.calm-loader span:nth-child(6) { animation-delay: .5s; }
+.calm-loader span:nth-child(7) { animation-delay: .6s; }
+.calm-loader span:nth-child(8) { animation-delay: .7s; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.4); }
+}
+
+.calm-ui > p {
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.calm-form {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 12px;
+  padding: 20px 28px 24px;
+  min-width: 220px;
+  text-align: left;
+}
+
+.form-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  opacity: 0.8;
+}
+
+.form-field {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 7px;
+  padding: 9px 12px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 8px;
+}
+
+.form-field.password {
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.8);
+}
+
+/* — Flight card — */
+.card-flight {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #080808;
+  color: #fff;
+  min-height: 260px;
+}
+
+.flight-half {
+  padding: 32px 28px;
+  position: relative;
+}
+
+.left-half {
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+.flight-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flight-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+.airline-code {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.4);
+  font-weight: 500;
+}
+
+.flight-meta, .flight-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.seat-label {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.06em;
+}
+
+.status-badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  background: #c0392b;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.tag {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.04em;
+}
+
+.route {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.city-block { flex: 1; }
+.city-block.right { text-align: right; }
+
+.airport {
+  display: block;
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.city-name {
+  display: block;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.35);
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+}
+
+.time {
+  display: block;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 4px;
+  letter-spacing: 0.02em;
+}
+
+.route-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.plane-icon {
+  color: rgba(255,255,255,0.25);
+  transform: rotate(90deg);
+}
+
+.flight-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-label {
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.seat-num {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.05em;
+}
+
+.barcode {
+  display: flex;
+  gap: 2px;
+  align-items: flex-end;
+}
+
+.barcode span {
+  background: rgba(255,255,255,0.2);
+  border-radius: 1px;
+  width: 3px;
+}
+
+.barcode span:nth-child(odd)  { height: 22px; }
+.barcode span:nth-child(even) { height: 14px; }
+.barcode span:nth-child(3n)   { height: 28px; width: 2px; }
+.barcode span:nth-child(5n)   { height: 10px; width: 5px; }
+
+/* ── Bottom bar ── */
+.bottom-bar {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: rgba(12, 12, 12, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 100px;
+  padding: 10px 20px 10px 22px;
+  white-space: nowrap;
+  z-index: 999;
+}
+
+.get-started {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.get-started:hover { opacity: 0.75; }
+
+.bar-divider {
+  width: 1px;
+  height: 18px;
+  background: rgba(255,255,255,0.15);
+}
+
+.bar-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.bar-icons a {
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+
+.bar-icons a:hover { color: #fff; opacity: 1; }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  h1 { font-size: 2.2rem; }
+
+  .projects { padding: 0 16px; }
+
+  .card-flight {
+    grid-template-columns: 1fr;
+  }
+
+  .left-half {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .airport { font-size: 1.8rem; }
+
+  .bottom-bar {
+    bottom: 16px;
+    padding: 9px 18px 9px 20px;
+  }
+}

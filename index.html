@@ -16,15 +16,18 @@
   .wordmark-svg path{fill:var(--ink)}
   .intro{max-width:100%;margin:0}
 
-  .connect-list{margin-top:12px}
-  .connect-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;text-decoration:none;color:var(--ink);transition:opacity .15s;margin-top:6px}
-  .connect-row:first-of-type{margin-top:0}
+  .connect-list{margin-top:12px;display:flex;flex-direction:column;gap:6px}
+  .connect-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;text-decoration:none;color:var(--ink);transition:opacity .15s}
+
   .connect-row:hover{opacity:.5}
   .connect-row-label{font-size:14px}
   .connect-arrow{font-size:14px;color:rgba(39,39,42,.4);flex-shrink:0}
   .connect-block{margin-top:24px}
+  .connect-label-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .connect-available{font-size:14px;color:rgba(39,39,42,.45)}
+  .connect-pricing{font-size:14px;color:var(--ink);margin-top:12px;line-height:22px}
   .connect-label{font-size:14px;color:rgba(28,28,28,.50);margin-bottom:8px}
-  .intro a{color:var(--ink);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+  .intro a{color:var(--ink);text-decoration:none}
   .intro a:hover{opacity:.6}
   .intro p{color:var(--ink);margin-bottom:16px;font-size:14px}
   .intro p:last-child{margin-bottom:0}
@@ -92,7 +95,10 @@
     <p>I'm Nicolas — previously a studio co-founder, now an independent designer with 10+ years creating for millions of users worldwide. Internet Design Studio is my new solo studio, built to help founders ship fast in this new era of the internet.</p>
     <p>Recent collaborations include Buenbit, peiGo, Towerbank, Ikigii, Aerolab, Eureka Labs, Great Sky Solar, Numia, Kstreet Ventures and more.</p>
     <div class="connect-block">
-      <div class="connect-label">Connect</div>
+      <div class="connect-label-row">
+        <div class="connect-label">Connect</div>
+        <div class="connect-available">Available for work</div>
+      </div>
       <div class="connect-list">
         <a href="https://t.me/nico_teodoro" class="connect-row" target="_blank" rel="noopener">
           <span class="connect-row-label">Find me on Telegram</span>
@@ -107,8 +113,7 @@
           <span class="connect-arrow">&#x2197;</span>
         </a>
       </div>
-    </div>
-      <p>Find me on <a href="https://t.me/nico_teodoro" target="_blank" rel="noopener">Telegram</a>, drop a line at <a href="mailto:nico@internetds.com">nico@internetds.com</a>, or find me on <a href="https://x.com/nicoteodoro" target="_blank" rel="noopener">X</a>. Projects start at $3,000 and scale with scope. Monthly retainers available.</p>
+      <p class="connect-pricing">Projects start at $3,000 and scale with scope. Monthly retainers available.</p>
     </div>
   </section>
   </div>

@@ -11,17 +11,18 @@
   body{background:linear-gradient(180deg,#ffffff 0%,#ffffff 60%,#cbd5e1 100%) fixed;min-height:100vh;color:var(--ink);font-family:var(--system);font-size:14px;line-height:22px;-webkit-font-smoothing:antialiased}
   a{color:inherit}
   .page{padding:120px 24px 0;max-width:900px;margin:0 auto}
-  .hero{width:100%;max-width:520px;margin:0 auto}
-  .wordmark-svg{display:block;width:100%;max-width:220px;height:auto;margin-bottom:32px}
+  .hero{width:100%;max-width:500px;margin:0 auto}
+  .wordmark-svg{display:block;width:100%;max-width:200px;height:auto;margin-bottom:32px}
   .wordmark-svg path{fill:var(--ink)}
   .intro{max-width:100%;margin:0}
 
   .connect-list{margin-top:12px;display:flex;flex-direction:column;gap:6px}
-  .connect-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;text-decoration:none;color:var(--ink);transition:opacity .15s}
+  .connect-row{display:flex;align-items:center;padding:6px 0;text-decoration:none;color:var(--ink);transition:opacity .15s;gap:0}
 
   .connect-row:hover{opacity:.5}
-  .connect-row-label{font-size:14px}
-  .connect-arrow{font-size:14px;color:rgba(39,39,42,.4);flex-shrink:0}
+  .connect-row-label{font-size:14px;color:rgba(39,39,42,.4);width:140px;flex-shrink:0}
+  .connect-row-value{font-size:14px;color:var(--ink);display:flex;align-items:center;gap:4px}
+  .connect-arrow{font-size:14px;color:var(--ink);flex-shrink:0}
   .connect-block{margin-top:24px}
   .connect-label-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
   .connect-available{font-size:14px;color:rgba(39,39,42,.45)}
@@ -91,29 +92,29 @@
 <path d="M6.92874 34.7352C6.92874 27.4418 6.79199 21.4703 6.51848 16.8664C6.29056 12.2624 5.92589 9.66412 5.51564 9.07153C5.19655 8.61569 4.19371 8.06869 2.50711 7.38493C0.820508 6.70118 0 5.69833 0 4.42199C0 3.19122 0.683757 2.32513 2.09685 1.86929C3.50995 1.36787 7.11107 1.13995 12.809 1.13995C18.4614 1.13995 21.9714 1.36787 23.3845 1.82371C24.7976 2.27955 25.4813 3.14564 25.4813 4.42199C25.4813 5.74392 24.5241 6.74676 22.564 7.4761C21.5611 7.88635 20.8774 8.20544 20.4671 8.52453C19.8745 8.98036 19.4187 10.8037 19.1452 13.9946C18.9173 17.1399 18.7805 22.3364 18.7805 29.5387C18.7805 39.1568 18.8717 46.7237 19.0996 52.2394C19.3275 57.755 19.601 60.7635 20.0113 61.3561C20.3304 61.812 21.2876 62.359 22.9742 63.0427C24.6608 63.6809 25.4813 64.6382 25.4813 65.9145C25.4813 67.3276 24.6152 68.2849 22.8831 68.8319C21.1509 69.3789 17.7777 69.6524 12.7179 69.6524C7.79483 69.6524 4.42163 69.3789 2.64386 68.8319C0.866092 68.2849 0 67.3276 0 65.9145C0 64.6382 1.00284 63.6353 2.96295 62.8604C3.96579 62.4501 4.64955 62.1311 5.0598 61.812C5.74356 61.3106 6.1994 59.1681 6.4729 55.3847C6.79199 51.6012 6.92874 44.7181 6.92874 34.7352Z" fill="#1C1C1C"/>
 </svg></header>
     <section class="intro anim anim-2">
+    <p id="greet" style="color:#9F9F9F;margin-bottom:16px">Hola</p>
     <p>Websites and products for internet founders who embrace simplicity.</p>
     <p>I'm Nicolas — previously a studio co-founder, now an independent designer with 10+ years creating for millions of users worldwide. Internet Design Studio is my new solo studio, built to help founders ship fast in this new era of the internet.</p>
     <p>Recent collaborations include Buenbit, peiGo, Towerbank, Ikigii, Aerolab, Eureka Labs, Great Sky Solar, Numia, Kstreet Ventures and more.</p>
     <div class="connect-block">
       <div class="connect-label-row">
-        <div class="connect-label">Connect</div>
-        <div class="connect-available">Available for work</div>
+        <div class="connect-label">Contact — Available for work</div>
       </div>
       <div class="connect-list">
         <a href="https://t.me/nico_teodoro" class="connect-row" target="_blank" rel="noopener">
-          <span class="connect-row-label">Find me on Telegram</span>
-          <span class="connect-arrow">&#x2197;</span>
+          <span class="connect-row-label">Telegram</span>
+          <span class="connect-row-value">@nico_teodoro <span class="connect-arrow">&#x2197;</span></span>
         </a>
         <a href="mailto:nico@internetds.com" class="connect-row">
-          <span class="connect-row-label">Drop a line at nico@internetds.com</span>
-          <span class="connect-arrow">&#x2197;</span>
+          <span class="connect-row-label">Email</span>
+          <span class="connect-row-value">nico@internetds.com <span class="connect-arrow">&#x2197;</span></span>
         </a>
         <a href="https://x.com/nicoteodoro" class="connect-row" target="_blank" rel="noopener">
-          <span class="connect-row-label">Follow me on X</span>
-          <span class="connect-arrow">&#x2197;</span>
+          <span class="connect-row-label">X</span>
+          <span class="connect-row-value">nicoteodoro <span class="connect-arrow">&#x2197;</span></span>
         </a>
       </div>
-      <p class="connect-pricing">Projects start at $3,000 and scale with scope.<br>Monthly retainers available.</p>
+      <p class="connect-pricing">Projects start at $5,000 and scale with scope.<br>Monthly retainers available.<br><span id="ba-time" style="color:rgba(39,39,42,.5)">GMT-3 · Buenos Aires</span></p>
     </div>
   </section>
   </div>
@@ -353,6 +354,54 @@ if(/iPhone|iPad|iPod/.test(navigator.userAgent)){
     });
   }
 }
+</script>
+
+<script>
+// Clock Buenos Aires
+function updateBATime(){
+  var now = new Date();
+  var ba = new Date(now.toLocaleString('en-US',{timeZone:'America/Argentina/Buenos_Aires'}));
+  var h=ba.getHours(),m=ba.getMinutes(),s=ba.getSeconds();
+  var ampm=h>=12?'pm':'am';
+  h=h%12||12;
+  var str='GMT-3 · '+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s+ampm+' in Buenos Aires';
+  var el=document.getElementById('ba-time');
+  if(el) el.textContent=str;
+}
+updateBATime();
+setInterval(updateBATime,1000);
+</script>
+
+<script>
+// Glitch greeting
+(function(){
+  var words=["Hola","Hello","\u3053\u3093\u306B\u3061\u306F","\u4F60\u597D"];
+  var latin="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  var kana="\u3042\u3044\u3046\u3048\u304A\u304B\u304D\u304F\u3051\u3053\u3055\u3057\u3059\u305B\u305D".split("");
+  var cjk="\u4F60\u597D\u4E16\u754C\u611B\u5149\u98A8\u96F2\u5C71\u6C34".split("");
+  var el=document.getElementById('greet');
+  if(!el)return;
+  var idx=0;
+  function poolFor(w){var c=w.charCodeAt(0);if(c>=0x3040&&c<=0x30FF)return kana;if(c>=0x4E00&&c<=0x9FFF)return cjk;return latin;}
+  function rand(a){return a[Math.floor(Math.random()*a.length)];}
+  function settle(target){
+    var pool=poolFor(target),len=target.length,frame=0;
+    var locks=[];for(var i=0;i<len;i++)locks[i]=6+Math.floor(Math.random()*10)+i*2;
+    var timer=setInterval(function(){
+      var out="",done=0;
+      for(var i=0;i<len;i++){
+        if(target[i]===" "){out+=" ";done++;continue;}
+        if(frame>=locks[i]){out+=target[i];done++;}
+        else out+=rand(pool);
+      }
+      el.textContent=out;frame++;
+      if(done===len){clearInterval(timer);el.textContent=target;queue(target);}
+    },45);
+  }
+  function queue(cur){setTimeout(function(){idx=(idx+1)%words.length;settle(words[idx]);},2200);}
+  el.textContent=words[0];
+  setTimeout(function(){queue(words[0]);},1500);
+})();
 </script>
 </body>
 </html>

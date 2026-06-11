@@ -265,7 +265,10 @@
     if(!started){
       started=true;
       var i=0;
-      function ni(){if(i<INTRO.length){bubIn(INTRO[i]);i++;setTimeout(ni,800);}}
+      function ni(){
+        if(i<INTRO.length){bubIn(INTRO[i]);i++;setTimeout(ni,800);}
+        else{setTimeout(function(){bubIn(getQ(0));input.focus();},600);}
+      }
       ni();
     }
   };
@@ -285,11 +288,6 @@
       },600);
     }
   }
-  input.addEventListener('focus',function(){
-    if(step===0&&started&&!document.querySelector('.bbl-out')){
-      setTimeout(function(){bubIn(getQ(0));},400);
-    }
-  },{once:true});
   sendBtn.addEventListener('click',send);
   input.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();send();}});
 

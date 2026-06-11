@@ -293,7 +293,7 @@
 
   function sendToTelegram(){
     var text="New contact\n\nName: "+(answers.name||'-')+"\nProject: "+(answers.project||'-')+"\nTimeline: "+(answers.timeline||'-')+"\nBudget: "+(answers.budget||'-')+"\nEmail: "+(answers.email||'-');
-    fetch("https://api.telegram.org/bot"+TOKEN+"/sendMessage",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({chat_id:CHAT_ID,text:text})}).catch(function(e){console.error(e);});
+    fetch("https://telegram-proxy.nicoteodoro93.workers.dev",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text:text})}).catch(function(e){console.error(e);});
   }
 })();
 </script>

@@ -304,5 +304,21 @@
 })();
 </script>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+
+<script>
+if(/iPhone|iPad|iPod/.test(navigator.userAgent)){
+  var botInput = document.getElementById('bot-input');
+  if(botInput){
+    botInput.addEventListener('focus', function(){
+      setTimeout(function(){
+        var thread = document.getElementById('bot-thread');
+        if(thread) thread.scrollTop = thread.scrollHeight;
+        var box = document.getElementById('bot-box');
+        if(box) box.scrollIntoView({block:'end',behavior:'smooth'});
+      }, 400);
+    });
+  }
+}
+</script>
 </body>
 </html>

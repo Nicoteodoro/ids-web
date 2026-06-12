@@ -114,7 +114,7 @@
           <span class="connect-row-value">nicoteodoro <span class="connect-arrow">&#x2197;</span></span>
         </a>
       </div>
-      <p class="connect-pricing">Projects start at $5,000 and scale with scope.<br>Monthly retainers available.<br><span id="ba-time" style="color:rgba(39,39,42,.5)">GMT-3 · Buenos Aires</span></p>
+      <p class="connect-pricing">Projects start at $5,000 and scale with scope.<br>Monthly retainers available.<br><span id="ba-time" style="color:rgba(39,39,42,.5);font-variant-numeric:tabular-nums;display:inline-block;min-width:160px"></span></p>
     </div>
   </section>
   </div>
@@ -364,7 +364,7 @@ function updateBATime(){
   var h=ba.getHours(),m=ba.getMinutes(),s=ba.getSeconds();
   var ampm=h>=12?'pm':'am';
   h=h%12||12;
-  var str='GMT-3 · '+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s+ampm+' in Buenos Aires';
+  var str=h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s+ampm+' Buenos Aires';
   var el=document.getElementById('ba-time');
   if(el) el.textContent=str;
 }

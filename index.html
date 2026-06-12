@@ -43,7 +43,6 @@
 
   /* pricing + clock */
   .pricing{margin-top:32px;font-size:14px;color:var(--ink);line-height:22px}
-  .clock{margin-top:32px;font-size:14px;color:var(--ink)}
 
   /* projects */
   .works{margin-top:150px;padding:0 24px;max-width:900px;margin-left:auto;margin-right:auto;padding-bottom:120px}
@@ -103,8 +102,6 @@
       <a href="#" class="collab-row"><span>Ikigii</span><span class="collab-year">2023</span></a>
       <a href="#" class="collab-row"><span>Aerolab</span><span class="collab-year">2022</span></a>
       <a href="#" class="collab-row"><span>Eureka Labs</span><span class="collab-year">2022</span></a>
-    </div><div class="clock">
-      <span id="ba-time" style="font-variant-numeric:tabular-nums;display:inline-block;min-width:160px"></span>
     </div>
 
   </div>
@@ -125,6 +122,7 @@
 
 <footer>&copy; <span id="yr"></span> Internet Design Studio</footer>
 
+<div id="clock-fixed" style="position:fixed;bottom:16px;left:24px;z-index:50;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px;color:var(--ink);font-variant-numeric:tabular-nums;text-transform:uppercase;letter-spacing:.04em;pointer-events:none"></div>
 <button class="fab" onclick="openBot()">Get started</button>
 
 <script>var _preload=new Image();_preload.src='sequoia.png';</script>
@@ -142,10 +140,10 @@ function updateBATime(){
   var now = new Date();
   var ba = new Date(now.toLocaleString('en-US',{timeZone:'America/Argentina/Buenos_Aires'}));
   var h=ba.getHours(),m=ba.getMinutes(),s=ba.getSeconds();
-  var ampm=h>=12?'pm':'am';
+  var ampm=h>=12?'PM':'AM';
   h=h%12||12;
-  var str=h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s+ampm+' BA';
-  var el=document.getElementById('ba-time');
+  var str='BA '+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s+' '+ampm;
+  var el=document.getElementById('clock-fixed');
   if(el) el.textContent=str;
 }
 updateBATime();
@@ -424,10 +422,10 @@ function updateBATime(){
   var now = new Date();
   var ba = new Date(now.toLocaleString('en-US',{timeZone:'America/Argentina/Buenos_Aires'}));
   var h=ba.getHours(),m=ba.getMinutes(),s=ba.getSeconds();
-  var ampm=h>=12?'pm':'am';
+  var ampm=h>=12?'PM':'AM';
   h=h%12||12;
-  var str=h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s+ampm+' BA';
-  var el=document.getElementById('ba-time');
+  var str='BA '+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s+' '+ampm;
+  var el=document.getElementById('clock-fixed');
   if(el) el.textContent=str;
 }
 updateBATime();

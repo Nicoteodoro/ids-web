@@ -6,70 +6,65 @@
 <title>Internet Design Studio</title>
 <link rel="preload" href="sequoia.png" as="image">
 <style>
-  :root{--ink:#0f0e0c;--muted:#9F9F9F;--bg:transparent;--system:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  :root{--ink:#0f0e0c;--bg:#fafafa;--system:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#fafafa;color:var(--ink);font-family:var(--system);font-size:14px;line-height:22px;-webkit-font-smoothing:antialiased}
-  a{color:inherit}
-  .page{padding:120px 24px 0;max-width:900px;margin:0 auto}
-  .hero{width:100%;max-width:450px;margin:0 auto}
+  body{background:var(--bg);color:var(--ink);font-family:var(--system);font-size:14px;line-height:22px;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+
+  /* layout */
+  .page{padding:120px 24px 80px;max-width:900px;margin:0 auto}
+  .hero{width:100%;max-width:450px;margin:0 auto 0 0}
+
+  /* logo */
   .wordmark-svg{display:block;width:100%;max-width:450px;height:auto;margin-bottom:32px}
   .wordmark-svg path{fill:#0f0e0c}
-  .intro{max-width:100%;margin:0;display:flex;flex-direction:column;gap:14px;margin-bottom:0}
 
-  .connect-list{margin-top:0;display:flex;flex-direction:column;gap:2px}
-  .connect-row{display:flex;align-items:center;padding:2px 0;text-decoration:none;color:var(--ink);transition:opacity .15s;gap:0}
+  /* texto */
+  .intro{display:flex;flex-direction:column;gap:14px;margin-bottom:0}
+  .intro p{font-size:14px;color:var(--ink);margin:0}
+  .intro a{text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+  #greet{color:#0f0e0c;font-size:14px}
 
-  .connect-row:hover{opacity:.5}
-  .connect-row-label{font-size:14px;color:#0f0e0c;width:100px;flex-shrink:0}
-  .connect-row-value{font-size:14px;color:#0f0e0c;display:flex;align-items:center;gap:2px}
-  .connect-arrow{font-size:14px;color:#0f0e0c;flex-shrink:0}
-  .connect-block{margin-top:32px}
-  .connect-label-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:0}
-  .connect-available{font-size:14px;color:#0f0e0c}
-  .connect-pricing{font-size:14px;color:var(--ink);margin-top:32px;line-height:22px}
-  .connect-label{font-size:14px;color:#0f0e0c;margin-bottom:8px}
-  .intro a{color:var(--ink);text-decoration:none}
-  .intro a:hover{opacity:.6}
-  .intro p{color:var(--ink);margin-bottom:0;font-size:14px}
-  .intro p:last-child{margin-bottom:0}
+  /* past collaborations */
+  .collabs{margin-top:32px}
+  .collabs-label{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:8px}
+  .collab-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;text-decoration:none;color:rgba(15,14,12,.45);font-size:14px}
+  .collab-row:hover{color:var(--ink)}
+  .collab-year{font-size:14px;color:rgba(15,14,12,.45)}
 
-  .works{margin-top:150px}
-  .works-label{font-size:14px;color:rgba(28,28,28,.50);margin-bottom:16px;text-align:center}
-  .shot{display:block;width:100%;max-width:800px;margin-left:auto;margin-right:auto;border-radius:12px;overflow:hidden;margin-bottom:12px;background:#d9d9d9;aspect-ratio:16/10;object-fit:cover}
-  footer{padding:48px 24px 40px;font-size:14px;color:var(--muted);text-align:center}
-  footer a{text-decoration:none}
-  footer a:hover{color:var(--ink)}
+  /* contact */
+  .contact{margin-top:32px}
+  .contact-label{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:0}
+  .contact-list{display:flex;flex-direction:column;gap:2px;margin-top:0}
+  .contact-row{display:flex;align-items:center;padding:3px 0;text-decoration:none;color:var(--ink);transition:opacity .15s;gap:0}
+  .contact-row:hover{opacity:.5}
+  .contact-label-col{font-size:14px;color:var(--ink);width:100px;flex-shrink:0}
+  .contact-value{font-size:14px;color:rgba(15,14,12,.45);display:flex;align-items:center;gap:4px}
 
-  .fab{
-    position:fixed;bottom:24px;left:50%;transform:translateX(-50%);
-    background:var(--ink);color:#fff;border:none;
-    font-family:var(--system);font-size:14px;font-weight:500;
-    padding:12px 28px;border-radius:999px;cursor:pointer;
-    box-shadow:0 4px 20px rgba(0,0,0,.15);
-    transition:opacity .15s,transform .15s;
-    z-index:50;white-space:nowrap;
-  }
+  /* pricing + clock */
+  .pricing{margin-top:32px;font-size:14px;color:var(--ink);line-height:22px}
+  .clock{margin-top:32px;font-size:14px;color:var(--ink)}
+
+  /* projects */
+  .works{margin-top:150px;padding:0 24px;max-width:900px;margin-left:auto;margin-right:auto;padding-bottom:120px}
+  .shot{display:block;width:100%;max-width:800px;border-radius:12px;margin-bottom:12px;background:#d9d9d9;aspect-ratio:16/10;object-fit:cover;margin-left:auto;margin-right:auto}
+
+  /* fab */
+  .fab{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fafafa;border:none;font-family:var(--system);font-size:14px;font-weight:500;padding:12px 28px;border-radius:999px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,.15);transition:opacity .15s,transform .15s;z-index:50;white-space:nowrap}
   .fab:hover{opacity:.85;transform:translateX(-50%) translateY(-2px)}
-  @media(max-width:480px){.wordmark-svg{max-width:300px}.intro{max-width:260px;text-align:left}.shot{max-width:100%}}
 
-  /* ---- Animaciones de entrada ---- */
-  @keyframes fadeUp{from{opacity:0}to{opacity:1}}
-  .anim{opacity:0;animation:fadeUp .5s ease forwards}
-  .anim-1{animation-delay:.05s}
-  .anim-2{animation-delay:.18s}
-  .anim-3{animation-delay:.30s}
-  .anim-4{animation-delay:.42s}
-  .anim-5{animation-delay:.54s}
-  @media(prefers-reduced-motion:reduce){.anim{animation:none;opacity:1}}
+  /* footer */
+  footer{padding:40px 24px;font-size:14px;color:var(--ink);text-align:center}
+
+  @media(max-width:480px){.wordmark-svg{max-width:300px}.works{margin-top:80px}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
-<button class="fab" onclick="openBot()">Get started</button>
-
-<script>var _preload=new Image();_preload.src='sequoia.png';</script>
 </head>
 <body>
+
 <div class="page">
   <div class="hero">
-  <header class="anim anim-1"><svg class="wordmark-svg" role="img" aria-label="Internet Design Studio" viewBox="0 0 858 89" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <header class="anim anim-1"><svg class="wordmark-svg" role="img" aria-label="Internet Design Studio" viewBox="0 0 858 89" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M821.898 41.755C821.898 48.0456 823.22 53.2877 825.864 57.527C828.553 61.7663 831.79 63.8632 835.619 63.8632C838.718 63.8632 841.226 62.5412 843.14 59.943C845.1 57.3447 846.057 53.8803 846.057 49.5954C846.057 43.396 844.69 38.1995 842.001 34.0058C839.311 29.7665 836.12 27.6696 832.337 27.6696C829.191 27.6696 826.684 28.946 824.77 31.5443C822.855 34.097 821.898 37.5157 821.898 41.755ZM833.568 70.5184C826.73 70.5184 821.078 68.1936 816.565 63.5441C812.052 58.8945 809.818 53.0142 809.818 45.9487C809.818 38.7921 812.189 32.8662 816.884 28.1255C821.625 23.3848 827.55 21.0144 834.662 21.0144C841.499 21.0144 847.106 23.248 851.436 27.6696C855.812 32.0913 858 37.7892 858 44.718C858 52.057 855.676 58.2108 850.981 63.1338C846.285 68.0569 840.496 70.5184 833.568 70.5184Z" fill="#0f0e0c"/>
 <path d="M805.529 29.9943L805.165 42.1196V42.3931C805.028 47.6808 804.982 51.5555 804.982 54.0626C804.982 57.0711 805.119 59.2135 805.393 60.4443C805.666 61.6751 806.168 62.4956 806.851 62.8602C807.262 63.0882 807.854 63.3161 808.629 63.6352C810.225 64.2278 811.045 65.0938 811.045 66.3246C811.045 67.5554 810.27 68.4215 808.72 68.9229C807.17 69.4243 804.344 69.6522 800.196 69.6522C795.364 69.6522 792.173 69.3787 790.578 68.8773C789.028 68.3759 788.253 67.4186 788.253 66.0055C788.253 64.9571 789.028 64.1366 790.578 63.544C791.171 63.3161 791.581 63.1793 791.809 63.0426C793.45 62.1309 794.042 60.3531 794.042 55.5668C794.042 54.9742 794.042 53.9258 793.997 52.376C793.951 50.8261 793.951 49.5498 793.951 48.5469V43.6239C793.951 38.6552 793.814 35.3732 793.586 33.8689C793.359 32.3647 792.903 31.4074 792.265 31.0883C791.763 30.8604 791.034 30.5869 790.031 30.2678C788.116 29.6752 787.159 28.8091 787.159 27.7607C787.159 26.3476 788.253 25.2992 790.988 24.2052C793.404 23.2479 795.775 22.5186 798.145 21.926C800.515 21.3334 802.202 21.0143 803.205 21.0143C804.891 21.0143 805.621 22.1083 805.621 25.0257C805.621 27.3505 805.575 28.5812 805.529 29.9943ZM791.171 6.83776C791.171 5.05999 791.9 3.51014 793.404 2.23379C794.908 0.957448 796.686 0.319275 798.829 0.319275C800.88 0.319275 802.612 0.911864 803.934 2.05146C805.302 3.19105 805.985 4.64974 805.985 6.38192C805.985 8.1141 805.256 9.57278 803.752 10.8035C802.293 12.0343 800.47 12.6269 798.236 12.6269C794.179 12.6269 791.171 10.1654 791.171 6.83776Z" fill="#0f0e0c"/>
 <path d="M773.568 67.0538V64.729C773.568 63.9997 773.385 63.4982 773.203 63.4982C773.066 63.4982 772.61 63.8173 771.744 64.5011C770.924 65.1392 770.24 65.6863 769.647 66.0965C765.864 68.9683 762.308 70.2446 758.434 70.2446C752.508 70.2446 747.676 68.1022 743.938 63.8629C740.246 59.578 738.377 54.0168 738.377 47.1792C738.377 39.4756 740.519 33.185 744.759 28.3075C749.044 23.4301 754.559 21.0141 761.351 21.0141C764.588 21.0141 767.961 21.7891 771.425 23.3845C772.109 23.7036 772.474 23.8403 772.61 23.8403C773.112 23.8403 773.294 23.2933 773.294 21.47V15.9087C773.294 13.6751 773.066 12.1709 772.656 11.3048C772.246 10.4387 771.471 9.75493 770.286 9.34468L769.009 8.98001C767.049 8.433 766.092 7.61249 766.092 6.4729C766.092 5.60681 766.457 4.87747 767.231 4.28488C768.006 3.69229 769.556 2.91736 771.972 2.05127C775.664 0.729341 779.083 0 781.682 0C783.824 0 784.69 1.13959 784.69 3.92021C784.69 4.14813 784.645 4.96863 784.599 6.33615C784.28 15.7264 784.098 25.5269 784.098 35.6921C784.098 45.8573 784.189 52.5125 784.417 55.5666C784.645 58.6208 785.009 60.3074 785.511 60.7176C786.012 61.0367 787.06 61.4014 788.747 61.8116C790.434 62.1763 791.3 62.9056 791.3 64.0452C791.3 65.5039 789.021 66.9626 784.417 68.4669L783.915 68.6492C781.317 69.5153 777.898 70.1079 776.075 70.1079C774.297 70.1079 773.568 69.1962 773.568 67.0538ZM773.112 50.8259V37.8346C773.066 35.8744 772.975 34.5981 772.838 33.9143C772.702 33.2306 772.474 32.638 772.155 32.2277C770.103 29.4471 765.955 27.487 762.081 27.487C758.571 27.487 755.744 28.9457 753.648 31.8175C751.551 34.6893 750.502 38.6551 750.502 43.6237C750.502 48.957 751.642 53.2875 753.921 56.6151C756.246 59.9427 759.163 61.6293 762.719 61.6293C769.465 61.6293 773.112 57.8914 773.112 50.8259Z" fill="#0f0e0c"/>
@@ -91,51 +86,141 @@
 <path d="M42.5813 27.7608L43.6753 26.758C43.9033 26.53 44.2679 26.2565 44.6782 25.8463C48.097 22.6098 51.8348 21.0144 55.8462 21.0144C60.4046 21.0144 64.8718 23.1113 67.7892 26.53C69.2479 28.2622 70.2963 30.3135 70.8889 32.7294C71.4815 35.1454 71.8006 38.8832 71.8006 43.9886V50.4159C71.8006 51.1909 71.8006 52.2393 71.755 53.5156C71.7094 54.792 71.7094 55.7037 71.7094 56.2051C71.7094 58.4387 71.8461 60.0341 72.1652 60.9914C72.4843 61.9031 73.0769 62.5868 73.8518 63.0427L75.0826 63.5441C76.6324 64.1367 77.4074 64.9572 77.4074 66.0056C77.4074 67.3731 76.678 68.3304 75.2193 68.8318C73.7607 69.3332 70.6154 69.5611 65.7379 69.5611C61.3163 69.5611 58.3077 69.3332 56.8035 68.8774C55.2992 68.376 54.5699 67.5554 54.5699 66.3247C54.5699 65.0939 55.3448 64.2278 56.9402 63.6352C57.7607 63.3162 58.3533 63.0882 58.718 62.8603C59.4473 62.4501 59.9488 61.584 60.2679 60.2165C60.5869 58.8034 60.7237 56.3874 60.7237 52.9686C60.7237 42.8946 60.0855 36.5585 58.7636 34.0058C57.4872 31.4531 55.1625 30.1767 51.8348 30.1767C48.4161 30.1767 45.0884 32.3648 43.4474 35.7836C42.7637 37.1511 42.2623 39.0656 41.9887 41.5271C41.7152 43.9886 41.5785 48.3647 41.5785 54.6552C41.5785 57.7094 41.7152 59.7606 41.9432 60.809C42.2167 61.8119 42.6725 62.4956 43.3563 62.8603C43.7665 63.0882 44.3591 63.3162 45.134 63.6352C46.7295 64.2278 47.55 65.0939 47.55 66.3247C47.55 67.5554 46.775 68.4215 45.2252 68.923C43.6753 69.4244 40.8492 69.6523 36.701 69.6523C31.8691 69.6523 28.6783 69.3788 27.0828 68.8774C25.533 68.376 24.7581 67.4187 24.7581 66.0056C24.7581 64.9572 25.533 64.1367 27.0828 63.5441C27.6754 63.3162 28.0857 63.1794 28.3136 63.0427C29.9546 62.131 30.5472 60.3532 30.5472 55.5669C30.5472 54.9743 30.5472 53.9259 30.5016 52.376C30.456 50.8262 30.456 49.5499 30.456 48.547V43.624C30.456 38.6553 30.3193 35.3733 30.0914 33.869C29.8635 32.3648 29.4076 31.4075 28.7694 31.0884C28.268 30.8605 27.5387 30.587 26.5358 30.2679C24.6213 29.6753 23.6641 28.8092 23.6641 27.7608C23.6641 26.3477 24.7581 25.2993 27.4931 24.2053C29.8179 23.2936 32.0971 22.5643 34.3307 22.0172C36.5643 21.4702 38.2053 21.1967 39.2537 21.1967C41.0315 21.1967 41.7608 22.0628 41.7608 24.2053V27.3506C41.7608 27.852 41.8064 27.8976 42.1255 27.9431C42.2623 27.9431 42.5358 27.8064 42.5813 27.7608Z" fill="#0f0e0c"/>
 <path d="M6.92874 34.7352C6.92874 27.4418 6.79199 21.4703 6.51848 16.8664C6.29056 12.2624 5.92589 9.66412 5.51564 9.07153C5.19655 8.61569 4.19371 8.06869 2.50711 7.38493C0.820508 6.70118 0 5.69833 0 4.42199C0 3.19122 0.683757 2.32513 2.09685 1.86929C3.50995 1.36787 7.11107 1.13995 12.809 1.13995C18.4614 1.13995 21.9714 1.36787 23.3845 1.82371C24.7976 2.27955 25.4813 3.14564 25.4813 4.42199C25.4813 5.74392 24.5241 6.74676 22.564 7.4761C21.5611 7.88635 20.8774 8.20544 20.4671 8.52453C19.8745 8.98036 19.4187 10.8037 19.1452 13.9946C18.9173 17.1399 18.7805 22.3364 18.7805 29.5387C18.7805 39.1568 18.8717 46.7237 19.0996 52.2394C19.3275 57.755 19.601 60.7635 20.0113 61.3561C20.3304 61.812 21.2876 62.359 22.9742 63.0427C24.6608 63.6809 25.4813 64.6382 25.4813 65.9145C25.4813 67.3276 24.6152 68.2849 22.8831 68.8319C21.1509 69.3789 17.7777 69.6524 12.7179 69.6524C7.79483 69.6524 4.42163 69.3789 2.64386 68.8319C0.866092 68.2849 0 67.3276 0 65.9145C0 64.6382 1.00284 63.6353 2.96295 62.8604C3.96579 62.4501 4.64955 62.1311 5.0598 61.812C5.74356 61.3106 6.1994 59.1681 6.4729 55.3847C6.79199 51.6012 6.92874 44.7181 6.92874 34.7352Z" fill="#0f0e0c"/>
 </svg></header>
+
     <section class="intro anim anim-2">
-    <p id="greet" style="color:#0f0e0c;margin-bottom:0">Hola</p>
-    <p>Websites and products for internet founders who embrace simplicity.</p>
-    <p>I'm Nicolas — previously a studio co-founder, now an independent designer with 10+ years creating for millions of users worldwide. Internet Design Studio is my new solo studio, built to help founders ship fast in this new era of the internet.</p>
-    <p>Recent collaborations include Buenbit, peiGo, Towerbank, Ikigii, Aerolab, Eureka Labs, Great Sky Solar, Numia, Kstreet Ventures and more.</p>
-  </section>
-  <div class="connect-block">
-    <div class="connect-label-row">
-      <div class="connect-label">Contact</div>
+      <p id="greet">Hola</p>
+      <p>Websites and products for internet founders who embrace simplicity.</p>
+      <p>I'm Nicolas — previously a studio co-founder, now an independent designer with 10+ years creating for millions of users worldwide. Internet Design Studio is my new solo studio, built to help founders ship fast in this new era of the internet.</p>
+      <p>Let's connect: <a href="mailto:nico@internetds.com">nico@internetds.com</a></p>
+    </section>
+
+    <div class="collabs anim anim-3">
+      <div class="collabs-label">Past collaborations</div>
+      <a href="#" class="collab-row"><span>Buenbit</span><span class="collab-year">2024</span></a>
+      <a href="#" class="collab-row"><span>peiGo</span><span class="collab-year">2024</span></a>
+      <a href="#" class="collab-row"><span>Towerbank</span><span class="collab-year">2023</span></a>
+      <a href="#" class="collab-row"><span>Ikigii</span><span class="collab-year">2023</span></a>
+      <a href="#" class="collab-row"><span>Aerolab</span><span class="collab-year">2022</span></a>
+      <a href="#" class="collab-row"><span>Eureka Labs</span><span class="collab-year">2022</span></a>
     </div>
-    <div class="connect-list">
-      <a href="mailto:nico@internetds.com" class="connect-row">
-        <span class="connect-row-label">Email</span>
-        <span class="connect-row-value">nico@internetds.com <span class="connect-arrow">&#x2197;</span></span>
-      </a>
-      <a href="https://t.me/nico_teodoro" class="connect-row" target="_blank" rel="noopener">
-        <span class="connect-row-label">Telegram</span>
-        <span class="connect-row-value">@nico_teodoro <span class="connect-arrow">&#x2197;</span></span>
-      </a>
-      <a href="https://x.com/nicoteodoro" class="connect-row" target="_blank" rel="noopener">
-        <span class="connect-row-label">X (Twitter)</span>
-        <span class="connect-row-value">nicoteodoro <span class="connect-arrow">&#x2197;</span></span>
-      </a>
+
+    <div class="contact anim anim-4">
+      <div class="contact-label">Contact</div>
+      <div class="contact-list">
+        <a href="mailto:nico@internetds.com" class="contact-row">
+          <span class="contact-label-col">Email</span>
+          <span class="contact-value">nico@internetds.com &#x2197;</span>
+        </a>
+        <a href="https://t.me/nico_teodoro" class="contact-row" target="_blank" rel="noopener">
+          <span class="contact-label-col">Telegram</span>
+          <span class="contact-value">@nico_teodoro &#x2197;</span>
+        </a>
+        <a href="https://x.com/nicoteodoro" class="contact-row" target="_blank" rel="noopener">
+          <span class="contact-label-col">X (Twitter)</span>
+          <span class="contact-value">nicoteodoro &#x2197;</span>
+        </a>
+      </div>
     </div>
+
+    <div class="pricing anim anim-5">
+      Projects start at $5,000 and scale with scope.<br>
+      Monthly retainers available.
+    </div>
+
+    <div class="clock">
+      <span id="ba-time" style="font-variant-numeric:tabular-nums;display:inline-block;min-width:160px"></span>
+    </div>
+
   </div>
-  <p class="connect-pricing">Projects start at $5,000 and scale with scope.<br>Monthly retainers available.</p>
-  <p class="connect-pricing" style="margin-top:32px"><span id="ba-time" style="color:#0f0e0c;font-variant-numeric:tabular-nums;display:inline-block;min-width:160px"></span></p>
-  </div>
-  <section class="works anim anim-4">
-    <img src="project-1.png" class="shot" alt="Project 1" loading="lazy">
-    <img src="placeholder-wide.png" class="shot" alt="Project 2" loading="lazy">
-    <img src="placeholder-wide.png" class="shot" alt="Project 3" loading="lazy">
-    <img src="placeholder-wide.png" class="shot" alt="Project 4" loading="lazy">
-    <img src="placeholder-wide.png" class="shot" alt="Project 5" loading="lazy">
-    <img src="placeholder-wide.png" class="shot" alt="Project 6" loading="lazy">
-    <img src="placeholder-wide.png" class="shot" alt="Project 7" loading="lazy">
-    <img src="placeholder-wide.png" class="shot" alt="Project 8" loading="lazy">
-    <img src="placeholder-wide.png" class="shot" alt="Project 9" loading="lazy">
-    <img src="placeholder-wide.png" class="shot" alt="Project 10" loading="lazy">
-  </section>
 </div>
-<footer>
-  &copy; <span id="yr"></span> Internet Design Studio &middot; Buenos Aires &middot;
-  <a href="mailto:nico@internetds.com">nico@internetds.com</a>
-</footer>
+
+<section class="works" id="work">
+  <img src="project-1.png" class="shot" alt="Project 1" loading="lazy">
+  <img src="placeholder-wide.png" class="shot" alt="Project 2" loading="lazy">
+  <img src="placeholder-wide.png" class="shot" alt="Project 3" loading="lazy">
+  <img src="placeholder-wide.png" class="shot" alt="Project 4" loading="lazy">
+  <img src="placeholder-wide.png" class="shot" alt="Project 5" loading="lazy">
+  <img src="placeholder-wide.png" class="shot" alt="Project 6" loading="lazy">
+  <img src="placeholder-wide.png" class="shot" alt="Project 7" loading="lazy">
+  <img src="placeholder-wide.png" class="shot" alt="Project 8" loading="lazy">
+  <img src="placeholder-wide.png" class="shot" alt="Project 9" loading="lazy">
+  <img src="placeholder-wide.png" class="shot" alt="Project 10" loading="lazy">
+</section>
+
+<footer>&copy; <span id="yr"></span> Internet Design Studio</footer>
+
+<button class="fab" onclick="openBot()">Get started</button>
+
+<script>var _preload=new Image();_preload.src='sequoia.png';</script>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+
+<style>
+  @keyframes fadeUp{from{opacity:0}to{opacity:1}}
+  .anim{opacity:0;animation:fadeUp .5s ease forwards}
+  .anim-1{animation-delay:.05s}.anim-2{animation-delay:.18s}.anim-3{animation-delay:.30s}.anim-4{animation-delay:.42s}.anim-5{animation-delay:.54s}
+</style>
+
+<script>
+// Clock Buenos Aires
+function updateBATime(){
+  var now = new Date();
+  var ba = new Date(now.toLocaleString('en-US',{timeZone:'America/Argentina/Buenos_Aires'}));
+  var h=ba.getHours(),m=ba.getMinutes(),s=ba.getSeconds();
+  var ampm=h>=12?'pm':'am';
+  h=h%12||12;
+  var str=h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s+ampm+' BA';
+  var el=document.getElementById('ba-time');
+  if(el) el.textContent=str;
+}
+updateBATime();
+setInterval(updateBATime,1000);
+</script>
+<script>
+// Glitch greeting
+(function(){
+  var words=["Hola","Hello","\u3053\u3093\u306B\u3061\u306F","\u4F60\u597D"];
+  var latin="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  var kana="\u3042\u3044\u3046\u3048\u304A\u304B\u304D\u304F\u3051\u3053\u3055\u3057\u3059\u305B\u305D".split("");
+  var cjk="\u4F60\u597D\u4E16\u754C\u611B\u5149\u98A8\u96F2\u5C71\u6C34".split("");
+  var el=document.getElementById('greet');
+  if(!el)return;
+  var idx=0;
+  function poolFor(w){var c=w.charCodeAt(0);if(c>=0x3040&&c<=0x30FF)return kana;if(c>=0x4E00&&c<=0x9FFF)return cjk;return latin;}
+  function rand(a){return a[Math.floor(Math.random()*a.length)];}
+  function settle(target){
+    var pool=poolFor(target),len=target.length,frame=0;
+    var locks=[];for(var i=0;i<len;i++)locks[i]=6+Math.floor(Math.random()*10)+i*2;
+    var timer=setInterval(function(){
+      var out="",done=0;
+      for(var i=0;i<len;i++){
+        if(target[i]===" "){out+=" ";done++;continue;}
+        if(frame>=locks[i]){out+=target[i];done++;}
+        else out+=rand(pool);
+      }
+      el.textContent=out;frame++;
+      if(done===len){clearInterval(timer);el.textContent=target;queue(target);}
+    },45);
+  }
+  function queue(cur){setTimeout(function(){idx=(idx+1)%words.length;settle(words[idx]);},2200);}
+  el.textContent=words[0];
+  setTimeout(function(){queue(words[0]);},1500);
+})();
+</script>
+<script>
+if(/iPhone|iPad|iPod/.test(navigator.userAgent)){
+  var botInput = document.getElementById('bot-input');
+  if(botInput){
+    botInput.addEventListener('focus', function(){
+      setTimeout(function(){
+        var thread = document.getElementById('bot-thread');
+        if(thread) thread.scrollTop = thread.scrollHeight;
+        var box = document.getElementById('bot-box');
+        if(box) box.scrollIntoView({block:'end',behavior:'smooth'});
+      }, 400);
+    });
+  }
+}
+</script>
 <!-- ===== CONTACT BOT MODAL ===== -->
 <style>
   #bot-overlay{

@@ -14,7 +14,7 @@
   .hero{width:100%;max-width:450px;margin:0 auto}
   .wordmark-svg{display:block;width:100%;max-width:200px;height:auto;margin-bottom:32px}
   .wordmark-svg path{fill:var(--ink)}
-  .intro{max-width:100%;margin:0}
+  .intro{max-width:100%;margin:0;display:flex;flex-direction:column;gap:16px}
 
   .connect-list{margin-top:0;display:flex;flex-direction:column;gap:2px}
   .connect-row{display:flex;align-items:center;padding:2px 0;text-decoration:none;color:var(--ink);transition:opacity .15s;gap:0}
@@ -23,14 +23,14 @@
   .connect-row-label{font-size:14px;color:rgba(39,39,42,.4);width:100px;flex-shrink:0}
   .connect-row-value{font-size:14px;color:var(--ink);display:flex;align-items:center;gap:2px}
   .connect-arrow{font-size:14px;color:var(--ink);flex-shrink:0}
-  .connect-block{margin-top:24px}
+  .connect-block{margin-top:32px}
   .connect-label-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:0}
   .connect-available{font-size:14px;color:rgba(39,39,42,.45)}
-  .connect-pricing{font-size:14px;color:var(--ink);margin-top:12px;line-height:22px}
+  .connect-pricing{font-size:14px;color:var(--ink);margin-top:32px;line-height:22px}
   .connect-label{font-size:14px;color:rgba(28,28,28,.50);margin-bottom:8px}
   .intro a{color:var(--ink);text-decoration:none}
   .intro a:hover{opacity:.6}
-  .intro p{color:var(--ink);margin-bottom:16px;font-size:14px}
+  .intro p{color:var(--ink);margin-bottom:0;font-size:14px}
   .intro p:last-child{margin-bottom:0}
 
   .works{margin-top:150px}
@@ -114,7 +114,8 @@
           <span class="connect-row-value">nicoteodoro <span class="connect-arrow">&#x2197;</span></span>
         </a>
       </div>
-      <p class="connect-pricing">Projects start at $5,000 and scale with scope.<br>Monthly retainers available.<br><span id="ba-time" style="color:rgba(39,39,42,.5);font-variant-numeric:tabular-nums;display:inline-block;min-width:160px"></span></p>
+      <p class="connect-pricing">Projects start at $5,000 and scale with scope.<br>Monthly retainers available.</p>
+      <p class="connect-pricing" style="margin-top:32px"><span id="ba-time" style="color:rgba(39,39,42,.5);font-variant-numeric:tabular-nums;display:inline-block;min-width:160px"></span></p>
     </div>
   </section>
   </div>

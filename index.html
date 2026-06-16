@@ -58,10 +58,32 @@
   .icon-btn{width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.05);border:none;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none;color:#000;flex-shrink:0;transition:opacity .15s}
   .icon-btn:hover{opacity:.5}
   .icon-btn svg{width:15px;height:15px}
+
+  .topbar{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:16px 24px;
+    pointer-events:none;
+  }
+  .topbar-left{display:flex;align-items:center;gap:6px;font-size:13px;color:#000;font-weight:400;pointer-events:auto}
+  .topbar-left svg{flex-shrink:0}
+  .topbar-right{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px;color:#000;font-variant-numeric:tabular-nums;text-transform:uppercase;letter-spacing:.04em}
 </style>
 </head>
 <body>
 
+
+<div class="topbar">
+  <div class="topbar-left">
+    <svg width="12" height="12" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.9291 6.48457C10.233 6.48457 10.4791 6.73062 10.4791 7.03457C10.4791 7.33852 10.233 7.58457 9.9291 7.58457H1.1291C0.825154 7.58457 0.579102 7.33852 0.579102 7.03457C0.579102 6.73062 0.825154 6.48457 1.1291 6.48457H9.9291ZM9.9291 3.18457C10.233 3.18457 10.4791 3.43062 10.4791 3.73457C10.4791 4.03852 10.233 4.28457 9.9291 4.28457H1.1291C0.825154 4.28457 0.579102 4.03852 0.579102 3.73457C0.579102 3.43062 0.825154 3.18457 1.1291 3.18457H9.9291Z" fill="currentColor"/>
+<path d="M9.9 5.5C9.9 3.07016 7.92984 1.1 5.5 1.1C3.07016 1.1 1.1 3.07016 1.1 5.5C1.1 7.92984 3.07016 9.9 5.5 9.9C7.92984 9.9 9.9 7.92984 9.9 5.5ZM11 5.5C11 8.53774 8.53774 11 5.5 11C2.46226 11 0 8.53774 0 5.5C0 2.46226 2.46226 0 5.5 0C8.53774 0 11 2.46226 11 5.5Z" fill="currentColor"/>
+<path d="M5.43612 10.2966L5.04127 10.6833C5.14491 10.7893 5.28733 10.8495 5.43612 10.8495C5.58491 10.8495 5.72733 10.7893 5.83096 10.6833L5.43612 10.2966ZM5.43612 0.552895L5.83096 0.166158C5.72733 0.0596316 5.58491 0 5.43612 0C5.28733 0 5.14491 0.0596316 5.04127 0.166158L5.43612 0.552895ZM6.87248 5.42474C6.8748 7.10195 6.21712 8.71316 5.04127 9.90984L5.83096 10.6833C7.20885 9.27995 7.98001 7.39142 7.97769 5.42474H6.8719H6.87248ZM5.04127 0.939632C6.21712 2.13632 6.8748 3.74695 6.87248 5.42474H7.97769C7.97769 3.37758 7.1579 1.52089 5.83096 0.166158L5.04127 0.939632ZM3.99917 5.42474C3.99685 3.74695 4.65512 2.13574 5.83096 0.939632L5.04127 0.166158C3.66338 1.56895 2.89222 3.45805 2.89454 5.42474H4.00033H3.99917ZM5.83096 9.90984C4.65512 8.71316 3.99801 7.10195 4.00033 5.42474H2.89454C2.89454 7.47189 3.71433 9.32858 5.04127 10.6833L5.83096 9.90984Z" fill="currentColor"/>
+</svg>
+    Open for work
+  </div>
+  <div class="topbar-right" id="ba-time-top"></div>
+</div>
 <div class="page">
   <div class="hero">
     <header class="anim anim-1"><svg class="wordmark-svg" role="img" aria-label="Internet Design Studio" viewBox="0 0 858 89" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -132,7 +154,6 @@
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-7-6.2 7H1.3l8.1-9.3L1 2h7l4.9 6.5L18.9 2Zm-2.4 18h1.9L7.6 4H5.6l10.9 16Z"/></svg>
   </a>
 </div>
-<div id="clock-fixed" style="position:fixed;bottom:16px;left:24px;z-index:50;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px;color:var(--ink);font-variant-numeric:tabular-nums;text-transform:uppercase;letter-spacing:.04em;pointer-events:none"></div>
 
 <script>var _preload=new Image();_preload.src='sequoia.png';</script>
 <script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
@@ -152,7 +173,7 @@ function updateBATime(){
   var ampm=h>=12?'PM':'AM';
   h=h%12||12;
   var str='BA '+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s+' '+ampm;
-  var el=document.getElementById('clock-fixed');
+  var el=document.getElementById('ba-time-top');
   if(el) el.textContent=str;
 }
 updateBATime();
@@ -434,7 +455,7 @@ function updateBATime(){
   var ampm=h>=12?'PM':'AM';
   h=h%12||12;
   var str='BA '+h+':'+(m<10?'0':'')+m+':'+(s<10?'0':'')+s+' '+ampm;
-  var el=document.getElementById('clock-fixed');
+  var el=document.getElementById('ba-time-top');
   if(el) el.textContent=str;
 }
 updateBATime();
